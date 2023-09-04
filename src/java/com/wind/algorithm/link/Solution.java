@@ -1,19 +1,33 @@
 package com.wind.algorithm.link;
 
+import java.util.HashSet;
+
 public class Solution {
     public static void main(String[] args) {
-        ListNode a1 = new ListNode(1);
+        ListNode a1 = new ListNode(3);
         ListNode a2 = new ListNode(2);
-        ListNode a3 = new ListNode(3);
-        ListNode a4 = new ListNode(4);
-        ListNode a5 = new ListNode(5);
+        ListNode a3 = new ListNode(0);
+        ListNode a4 = new ListNode(-4);
+
         a1.next = a2;
         a2.next = a3;
         a3.next = a4;
-        a4.next = a5;
-        getKthFromEnd(a1,2);
+        a4.next = a2;
+
+    }
 
 
+
+    public  static boolean hasCycle(ListNode head) {
+        ListNode left = head, right = head;
+        while (right != null && right.next != null) {
+            right = right.next.next;
+            left = left.next;
+            if (left == right) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static ListNode getKthFromEnd(ListNode head, int k) {
