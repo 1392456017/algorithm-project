@@ -18,8 +18,21 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        int[] nu = new int[]{1,2};
-        System.out.println(removeDuplicates(nu));
+        int[] nu = new int[]{0,1,2,2,3,0,4,2};
+
     }
+
+    int removeElement(int[] nums, int val) {
+        int fast = 0, slow = 0;
+        while (fast < nums.length) {
+            if (nums[fast] != val) {
+                nums[slow] = nums[fast];
+                slow++;
+            }
+            fast++;
+        }
+        return slow;
+    }
+
 
 }
