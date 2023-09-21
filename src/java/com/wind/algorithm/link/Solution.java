@@ -1,47 +1,19 @@
 package com.wind.algorithm.link;
 
-import java.util.HashSet;
-
 public class Solution {
     public static void main(String[] args) {
         ListNode a1 = new ListNode(1);
-        ListNode a2 = new ListNode(1);
-        ListNode a3 = new ListNode(2);
-        ListNode a4 = new ListNode(3);
-        ListNode a5 = new ListNode(3);
-
+        ListNode a2 = new ListNode(2);
+        ListNode a3 = new ListNode(3);
+        ListNode a4 = new ListNode(4);
+        ListNode a5 = new ListNode(5);
         a1.next = a2;
         a2.next = a3;
         a3.next = a4;
         a4.next = a5;
-        deleteDuplicates(a1);
-    }
+        getKthFromEnd(a1,2);
 
-    public static ListNode deleteDuplicates(ListNode head) {
-        ListNode left = head, right = head;
-        while (right != null) {
-            if (right.val == left.val) {
-                right = right.next;
-            } else {
-                left.next = right;
-                left = right;
-                right = right.next;
-            }
-        }
-        left.next = null;
-        return head;
-    }
 
-    public static boolean hasCycle(ListNode head) {
-        ListNode left = head, right = head;
-        while (right != null && right.next != null) {
-            right = right.next.next;
-            left = left.next;
-            if (left == right) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public static ListNode getKthFromEnd(ListNode head, int k) {
